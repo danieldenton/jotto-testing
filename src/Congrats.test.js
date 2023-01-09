@@ -1,12 +1,8 @@
-import Enzyme, { shallow } from "enzyme";
-import Adapter from "@cfaester/enzyme-adapter-react-18";
+import { shallow } from "enzyme";
 import React from "react";
-import { checkPropTypes } from "prop-types";
-import { findByTestAttr } from "./test/test.utils";
-import { checkProps } from "./test/test.utils";
+import { findByTestAttr } from "./test/testUtils";
+import { checkProps } from "./test/testUtils";
 import Congrats from "./Congrats";
-
-Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = { success: false };
 

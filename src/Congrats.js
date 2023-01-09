@@ -15,7 +15,7 @@ const Congrats = (props) => {
   }
 };
 
-Congrats.PropTypes = {
+Congrats.propTypes = {
   success: PropTypes.bool.isRequired,
 };
 
