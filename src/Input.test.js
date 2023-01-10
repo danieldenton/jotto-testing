@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { checkProps, findByTestAttr } from "./test/testUtils";
 import { shallow } from "enzyme";
 import Input from "./Input";
@@ -6,6 +6,13 @@ import Input from "./Input";
 const setup = (secretWord = "fuk") => {
   return shallow(<Input secretWord={secretWord} />);
 };
+
+const mockSetCurrentGuess = jest.fn();
+
+jest.mock("react", () => ({
+  ...jest.requireActual("react"),
+  useState: (initialState) => [initialState, mockSetCurrentGuess],
+}));
 
 test("renders without error", () => {
   const wrapper = setup();
@@ -19,7 +26,6 @@ test("does not throw warning with expected props", () => {
 
 describe("state controlled input field", () => {
   test("state updates with value of input box upon change", () => {
-    const mockSetCurrentGuess = jest.fn();
     React.useState = jest.fn(() => ["", mockSetCurrentGuess]);
     const wrapper = setup();
     const inputBox = findByTestAttr(wrapper, "input-box");
