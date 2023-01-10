@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 import Congrats from "./Congrats";
@@ -6,9 +5,9 @@ import GuessedWords from "./GuessedWords";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <h1>Jotto</h1>
-      <Congrats success={false} />
+      <Congrats success={true} />
       <GuessedWords
         guessedWords={[{ guessedWord: "fake", letterMatchCount: 1 }]}
       />
