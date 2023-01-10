@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { checkProps, findByTestAttr } from "./test/testUtils";
 import { shallow } from "enzyme";
-import Input from "./Input";
+import Input, { currentGuess } from "./Input";
 
 const setup = (secretWord = "fuk") => {
   return shallow(<Input secretWord={secretWord} />);
@@ -28,10 +28,15 @@ describe("state controlled input field", () => {
   test("state updates with value of input box upon change", () => {
     const wrapper = setup();
     const inputBox = findByTestAttr(wrapper, "input-box");
-
     const mockEvent = { target: { value: "why" } };
     inputBox.simulate("change", mockEvent);
-
     expect(mockSetCurrentGuess).toHaveBeenCalledWith("why");
+  });
+  test("field is cleared upon submit button click", () => {
+    const wrapper = setup();
+    const button = findByTestAttr(wrapper, "submit-button");
+    const mockEvent = "";
+    button.simulate("click", mockEvent);
+    expect(mockSetCurrentGuess).toHaveBeenCalledWith("");
   });
 });
