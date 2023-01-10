@@ -2,11 +2,13 @@ import "./App.css";
 
 import Congrats from "./Congrats";
 import GuessedWords from "./GuessedWords";
+import Input from "./Input";
 
 function App() {
   return (
     <div className="container">
       <h1>Jotto</h1>
+      <Input secretWord={"fuk"} />
       <Congrats success={true} />
       <GuessedWords
         guessedWords={[{ guessedWord: "fake", letterMatchCount: 1 }]}
