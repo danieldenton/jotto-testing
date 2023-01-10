@@ -1,7 +1,6 @@
-import { shallow } from "enzyme";
 import React from "react";
-import { findByTestAttr } from "./test/testUtils";
-import { checkProps } from "./test/testUtils";
+import { shallow } from "enzyme";
+import { findByTestAttr, checkProps } from "./test/testUtils";
 import Congrats from "./Congrats";
 
 const defaultProps = { success: false };
@@ -12,7 +11,7 @@ const setup = (props = {}) => {
 };
 
 test("renders without error", () => {
-  const wrapper = setup();
+  const wrapper = setup({ success: false });
   const component = findByTestAttr(wrapper, "component-congrats");
   expect(component.length).toBe(1);
 });
