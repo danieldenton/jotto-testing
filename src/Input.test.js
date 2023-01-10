@@ -26,7 +26,6 @@ test("does not throw warning with expected props", () => {
 
 describe("state controlled input field", () => {
   test("state updates with value of input box upon change", () => {
-    React.useState = jest.fn(() => ["", mockSetCurrentGuess]);
     const wrapper = setup();
     const inputBox = findByTestAttr(wrapper, "input-box");
 
