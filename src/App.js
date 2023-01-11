@@ -5,14 +5,15 @@ import GuessedWords from "./GuessedWords";
 import Input from "./Input";
 
 function App() {
+  const success = false;
+  const secretWord = "party";
+  const guessedWords = [];
   return (
     <div className="container" data-test="component-app">
       <h1>Jotto</h1>
-      <Input secretWord={"fuk"} />
-      <Congrats success={true} />
-      <GuessedWords
-        guessedWords={[{ guessedWord: "fake", letterMatchCount: 1 }]}
-      />
+      <Input secretWord={secretWord} />
+      <Congrats success={success} />
+      <GuessedWords guessedWords={guessedWords} />
     </div>
   );
 }
