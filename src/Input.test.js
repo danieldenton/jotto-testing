@@ -1,7 +1,14 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { checkProps, findByTestAttr } from "./test/testUtils";
 import { shallow } from "enzyme";
 import Input from "./Input";
+
+// const mockSetCurrentGuess = jest.fn();
+
+// jest.mock("react", () => ({
+//   ...jest.requireActual("react"),
+//   useState: (initialState) => [initialState, mockSetCurrentGuess],
+// }));
 
 const setup = (secretWord = "fuk") => {
   return shallow(<Input secretWord={secretWord} />);
@@ -28,12 +35,12 @@ test("does not throw warning with expected props", () => {
 //   afterEach(() => {
 //     React.useState = originalUseState;
 //   });
-//   test("state updates with value of input box upon change", () => {
-//     const inputBox = findByTestAttr(wrapper, "input-box");
-//     const mockEvent = { target: { value: "why" } };
-//     inputBox.simulate("change", mockEvent);
-//     expect(mockSetCurrentGuess).toHaveBeenCalledWith("why");
-//   });
+// test("state updates with value of input box upon change", () => {
+//   const inputBox = findByTestAttr(wrapper, "input-box");
+//   const mockEvent = { target: { value: "why" } };
+//   inputBox.simulate("change", mockEvent);
+//   expect(mockSetCurrentGuess).toHaveBeenCalledWith("why");
+// });
 //   test("field is cleared upon submit button click", () => {
 //     const button = findByTestAttr(wrapper, "submit-button");
 //     button.simulate("click", { preventDefault() {} });
