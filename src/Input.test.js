@@ -1,25 +1,24 @@
-// import React from "react";
-// import { checkProps, findByTestAttr } from "./test/testUtils";
-// import { shallow } from "enzyme";
-// import Input from "./Input";
+import * as React from "react";
+import { checkProps, findByTestAttr } from "./test/testUtils";
+import { shallow } from "enzyme";
+import Input from "./Input";
 
-// const setup = (secretWord = "fuk") => {
-//   return shallow(<Input secretWord={secretWord} />);
-// };
-// const wrapper = setup();
+const setup = (secretWord = "fuk") => {
+  return shallow(<Input secretWord={secretWord} />);
+};
+const wrapper = setup();
 
-// let mockSetCurrentGuess = jest.fn();
+test("renders without error", () => {
+  const inputComponent = findByTestAttr(wrapper, "component-input");
+  expect(inputComponent.length).toBe(1);
+});
 
-// test("renders without error", () => {
-//   const inputComponent = findByTestAttr(wrapper, "component-input");
-//   expect(inputComponent.length).toBe(1);
-// });
-
-// test("does not throw warning with expected props", () => {
-//   checkProps(Input, { secretWord: 99 });
-// });
+test("does not throw warning with expected props", () => {
+  checkProps(Input, { secretWord: "fuk" });
+});
 
 // describe("state controlled input field", () => {
+//   const mockSetCurrentGuess = jest.fn();
 //   let originalUseState;
 //   beforeEach(() => {
 //     mockSetCurrentGuess.mockClear();
